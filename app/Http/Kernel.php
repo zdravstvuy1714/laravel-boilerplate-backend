@@ -23,6 +23,9 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 
 class Kernel extends HttpKernel
 {
+    /**
+     * @var array<int, class-string|string>
+     */
     protected $middleware = [
         ConvertResponsesToJSON::class,
         TrustProxies::class,
@@ -33,12 +36,18 @@ class Kernel extends HttpKernel
         ConvertEmptyStringsToNull::class,
     ];
 
+    /**
+     * @var array<string, array<int, class-string|string>>
+     */
     protected $middlewareGroups = [
         'api' => [
             'throttle:api',
         ],
     ];
 
+    /**
+     * @var array<string, class-string|string>
+     */
     protected $routeMiddleware = [
         'auth' => Authenticate::class,
         'auth.basic' => AuthenticateWithBasicAuth::class,

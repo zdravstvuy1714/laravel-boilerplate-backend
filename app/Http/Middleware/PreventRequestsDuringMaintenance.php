@@ -6,5 +6,8 @@ use Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance as Mi
 
 class PreventRequestsDuringMaintenance extends Middleware
 {
+    /**
+     * @var array<int, string>
+     */
     protected $except = [];
 }

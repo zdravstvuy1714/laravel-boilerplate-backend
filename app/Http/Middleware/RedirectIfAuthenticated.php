@@ -8,10 +8,14 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class RedirectIfAuthenticated
 {
-    public function handle(Request $request, Closure $next, ...$guards): Response|RedirectResponse
+    /**
+     * @param string|null  ...$guards
+     */
+    public function handle(Request $request, Closure $next, ...$guards): Redirect|RedirectResponse
     {
         $guards = empty($guards) ? [null] : $guards;
 
