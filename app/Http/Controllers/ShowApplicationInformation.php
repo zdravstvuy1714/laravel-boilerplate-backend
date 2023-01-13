@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 
-class ShowApplicationInformation
+final class ShowApplicationInformation
 {
     public function __invoke(): JsonResponse
     {

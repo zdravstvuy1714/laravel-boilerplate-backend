@@ -48,10 +48,19 @@
         ],
         "phpstan": [
             "./vendor/bin/phpstan analyse --memory-limit=4G"
+        ],
+        "pint": [
+            "./vendor/bin/pint -v"
+        ],
+        "analyse": [
+            "phpstan",
+            "pint"
         ]
     },
     "scripts-descriptions": {
-        "phpstan": "Run PHPStan static analysis against your application."
+        "phpstan": "Run PHPStan static analysis against your application.",
+        "pint": "Run PHPStan and Pint against your application.",
+        "analyse": ""
     },
     "extra": {
         "laravel": {

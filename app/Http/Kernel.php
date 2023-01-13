@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http;
 
 use App\Http\Middleware\Authenticate;
@@ -21,7 +23,7 @@ use Illuminate\Http\Middleware\SetCacheHeaders;
 use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\AuthenticateSession;
 
-class Kernel extends HttpKernel
+final class Kernel extends HttpKernel
 {
     /**
      * @var array<int, class-string|string>
