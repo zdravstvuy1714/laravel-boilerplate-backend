@@ -1,0 +1,13 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+final class $CLASS$ extends FormRequest
+{
+    public function rules(): array
+    {
+        return [];
+    }
+}

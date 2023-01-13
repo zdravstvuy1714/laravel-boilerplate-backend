@@ -1,0 +1,21 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+
+class $CLASS$ extends ServiceProvider
+{
+    public function map(): void
+    {
+        $this->mapApiRoutes();
+    }
+
+    protected function mapApiRoutes(): void
+    {
+        Route::prefix('api')
+            ->middleware('api')
+            ->group(module_path('$MODULE$', '$API_ROUTES_PATH$'));
+    }
+}

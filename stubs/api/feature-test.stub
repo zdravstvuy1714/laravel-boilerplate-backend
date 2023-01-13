@@ -1,0 +1,15 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Tests\TestCase;
+
+final class $CLASS$ extends TestCase
+{
+    public function testExample(): void
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+}

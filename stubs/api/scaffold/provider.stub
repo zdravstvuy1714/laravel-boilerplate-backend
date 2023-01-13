@@ -1,0 +1,51 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Support\ServiceProvider;
+
+class $CLASS$ extends ServiceProvider
+{
+    protected string $moduleName = '$MODULE$';
+
+    protected string $moduleNameLower = '$LOWER_NAME$';
+
+    public function register(): void
+    {
+        $this->app->register(RouteServiceProvider::class);
+    }
+
+    public function boot(): void
+    {
+        $this->registerTranslations();
+        $this->registerConfig();
+        $this->loadMigrations();
+    }
+
+    protected function registerConfig(): void
+    {
+        $this->publishes([
+            module_path($this->moduleName, '$PATH_CONFIG$/config.php') => config_path("$this->moduleNameLower.php"),
+        ], 'config');
+
+        $this->mergeConfigFrom(module_path($this->moduleName, '$PATH_CONFIG$/config.php'), $this->moduleNameLower);
+    }
+
+    protected function registerTranslations(): void
+    {
+        $langPath = resource_path("lang/modules/$this->moduleNameLower");
+
+        if (is_dir($langPath)) {
+            $this->loadTranslationsFrom($langPath, $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom($langPath);
+        } else {
+            $this->loadTranslationsFrom(module_path($this->moduleName, '$PATH_LANG$'), $this->moduleNameLower);
+            $this->loadJsonTranslationsFrom(module_path($this->moduleName, '$PATH_LANG$'));
+        }
+    }
+
+    protected function loadMigrations(): void
+    {
+        $this->loadMigrationsFrom(module_path($this->moduleName, '$MIGRATIONS_PATH$'));
+    }
+}
