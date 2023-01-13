@@ -1,10 +1,12 @@
 <?php
 
-namespace $NAMESPACE$;
+declare(strict_types=1);
+
+namespace Modules\Blog\Events;
 
 use Illuminate\Queue\SerializesModels;
 
-final class $CLASS$
+final class BlogPostWasUpdated
 {
     use SerializesModels;
 

@@ -3,26 +3,15 @@
 namespace $NAMESPACE$;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use $MODEL_NAMESPACE$\$NAME$;
 
-class $NAME$Factory extends Factory
+final class $NAME$Factory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = \$MODEL_NAMESPACE$\$NAME$::class;
+    protected $model = $NAME$::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
+    public function definition(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 }
 

@@ -1,11 +1,13 @@
 <?php
 
-namespace $NAMESPACE$;
+declare(strict_types=1);
+
+namespace Modules\Blog\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-final class $CLASS$ implements ShouldQueue
+final class NotifyUsersOfANewPosts implements ShouldQueue
 {
     use InteractsWithQueue;
 

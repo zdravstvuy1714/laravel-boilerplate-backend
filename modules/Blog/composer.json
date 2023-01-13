@@ -1,0 +1,23 @@
+{
+    "name": "zdravstvuy1714/blog",
+    "description": "",
+    "authors": [
+        {
+            "name": "Eugene Musienko",
+            "email": "zdravstvuy1714@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Blog\\": ""
+        }
+    }
+}
