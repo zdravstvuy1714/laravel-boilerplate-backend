@@ -13,6 +13,8 @@ use Modules\User\Entities\User;
  */
 final class UserFactory extends Factory
 {
+    protected $model = User::class;
+
     public function definition(): array
     {
         return [
