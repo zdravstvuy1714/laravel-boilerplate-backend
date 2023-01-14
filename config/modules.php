@@ -34,7 +34,6 @@ return [
             'routes/api' => 'Routes/api.php',
             'scaffold/config' => 'Config/config.php',
             'composer' => 'composer.json',
-            'package' => 'package.json',
         ],
         'replacements' => [
             'routes/web' => ['LOWER_NAME', 'STUDLY_NAME'],
@@ -57,6 +56,7 @@ return [
         'gitkeep' => true,
     ],
     'paths' => [
+
         /*
         |--------------------------------------------------------------------------
         | Modules path
@@ -68,6 +68,7 @@ return [
         */
 
         'modules' => base_path('modules'),
+
         /*
         |--------------------------------------------------------------------------
         | Modules assets path
@@ -78,6 +79,7 @@ return [
         */
 
         'assets' => public_path('modules'),
+
         /*
         |--------------------------------------------------------------------------
         | The migrations path
@@ -89,6 +91,7 @@ return [
         */
 
         'migration' => base_path('database/migrations'),
+
         /*
         |--------------------------------------------------------------------------
         | Generator path
@@ -96,34 +99,62 @@ return [
         | Customise the paths where the folders will be generated.
         | Set the generate key to false to not generate that folder
         */
+
         'generator' => [
+            // Configuration.
             'config' => ['path' => 'Config', 'generate' => true],
-            'command' => ['path' => 'Console', 'generate' => true],
-            'migration' => ['path' => 'Database/Migrations', 'generate' => true],
-            'seeder' => ['path' => 'Database/Seeders', 'generate' => true],
-            'factory' => ['path' => 'Database/factories', 'generate' => true],
-            'model' => ['path' => 'Entities', 'generate' => true],
-            'routes' => ['path' => 'Routes', 'generate' => true],
-            'controller' => ['path' => 'Http/Controllers', 'generate' => true],
-            'filter' => ['path' => 'Http/Middleware', 'generate' => true],
-            'request' => ['path' => 'Http/Requests', 'generate' => true],
+
+            // Providers.
             'provider' => ['path' => 'Providers', 'generate' => true],
-            'assets' => ['path' => 'Resources/assets', 'generate' => true],
-            'lang' => ['path' => 'Resources/lang', 'generate' => true],
-            'views' => ['path' => 'Resources/views', 'generate' => true],
-            'test' => ['path' => 'Tests/Unit', 'generate' => true],
-            'test-feature' => ['path' => 'Tests/Feature', 'generate' => true],
-            'repository' => ['path' => 'Repositories', 'generate' => false],
+
+            // Entities.
+            'model' => ['path' => 'Entities', 'generate' => true],
+
+            // Data storage.
+            'migration' => ['path' => 'Database/Migrations', 'generate' => true],
+            'factory' => ['path' => 'Database/Factories', 'generate' => true],
+            'seeder' => ['path' => 'Database/Seeders', 'generate' => true],
+            'repository' => ['path' => 'Repositories', 'generate' => true],
+
+            // Business logic.
+            'routes' => ['path' => 'Routes', 'generate' => true],
+            'filter' => ['path' => 'Http/Middleware', 'generate' => false],
+            'request' => ['path' => 'Http/Requests', 'generate' => false],
+            'data-transfer-objects' => ['path' => 'DataTransferObjects', 'generate' => true],
+            'policies' => ['path' => 'Policies', 'generate' => false],
+            'controller' => ['path' => 'Http/Controllers', 'generate' => true],
+            'command' => ['path' => 'Console', 'generate' => false],
+            'jobs' => ['path' => 'Jobs', 'generate' => false],
+            'actions' => ['path' => 'Actions', 'generate' => true],
+            'tasks' => ['path' => 'Tasks', 'generate' => true],
+            'exceptions' => ['path' => 'Exceptions', 'generate' => true],
+
+            // Events.
             'event' => ['path' => 'Events', 'generate' => false],
             'listener' => ['path' => 'Listeners', 'generate' => false],
-            'policies' => ['path' => 'Policies', 'generate' => false],
+
+            // Data transformation.
+            'resource' => ['path' => 'Transformers', 'generate' => true],
+
+            // Localization.
+            'lang' => ['path' => 'Resources/lang', 'generate' => true],
+
+            // Rules.
             'rules' => ['path' => 'Rules', 'generate' => false],
-            'jobs' => ['path' => 'Jobs', 'generate' => false],
+
+            // Notice.
             'emails' => ['path' => 'Emails', 'generate' => false],
             'notifications' => ['path' => 'Notifications', 'generate' => false],
-            'resource' => ['path' => 'Transformers', 'generate' => false],
+
+            // Views.
+            'views' => ['path' => 'Resources/views', 'generate' => false],
+            'assets' => ['path' => 'Resources/assets', 'generate' => false],
             'component-view' => ['path' => 'Resources/views/components', 'generate' => false],
             'component-class' => ['path' => 'View/Components', 'generate' => false],
+
+            // Testing.
+            'test-feature' => ['path' => 'Tests/Feature', 'generate' => true],
+            'test' => ['path' => 'Tests/Unit', 'generate' => true],
         ],
     ],
 
@@ -137,6 +168,7 @@ return [
     | you can simply comment them out.
     |
     */
+
     'commands' => [
         Commands\CommandMakeCommand::class,
         Commands\ComponentClassMakeCommand::class,
@@ -200,6 +232,7 @@ return [
             base_path('vendor/*/*'),
         ],
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Composer File Template
@@ -226,12 +259,14 @@ return [
     | Here is the config for setting up caching feature.
     |
     */
+
     'cache' => [
         'enabled' => false,
         'driver' => env('MODULES_CACHE_DRIVER', 'file'),
         'key' => 'laravel-modules',
         'lifetime' => 60,
     ],
+
     /*
     |--------------------------------------------------------------------------
     | Choose what laravel-modules will register as custom namespaces.
@@ -239,8 +274,10 @@ return [
     | in your own Service Provider class.
     |--------------------------------------------------------------------------
     */
+
     'register' => [
         'translations' => true,
+
         /**
          * load files on boot or register method
          *
@@ -260,6 +297,7 @@ return [
     | required parameter is 'class'.
     | The file activator will store the activation status in storage/installed_modules
     */
+
     'activators' => [
         'file' => [
             'class' => FileActivator::class,

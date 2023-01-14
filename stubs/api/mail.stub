@@ -4,30 +4,35 @@ namespace $NAMESPACE$;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class $CLASS$ extends Mailable
+final class $CLASS$ extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-        //
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
+    public function envelope(): Envelope
     {
-        return $this->view('view.name');
+        return new Envelope(
+            subject: 'Test Mail',
+        );
+    }
+
+    public function content(): Content
+    {
+        return new Content(
+            view: 'view.name',
+        );
+    }
+
+    public function attachments(): array
+    {
+        return [];
     }
 }

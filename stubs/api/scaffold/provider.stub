@@ -4,7 +4,7 @@ namespace $NAMESPACE$;
 
 use Illuminate\Support\ServiceProvider;
 
-class $CLASS$ extends ServiceProvider
+final class $CLASS$ extends ServiceProvider
 {
     protected string $moduleName = '$MODULE$';
 
