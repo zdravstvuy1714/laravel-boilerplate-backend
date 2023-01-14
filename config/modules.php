@@ -33,7 +33,6 @@ return [
         'files' => [
             'routes/api' => 'Routes/api.php',
             'scaffold/config' => 'Config/config.php',
-            'composer' => 'composer.json',
         ],
         'replacements' => [
             'routes/web' => ['LOWER_NAME', 'STUDLY_NAME'],
