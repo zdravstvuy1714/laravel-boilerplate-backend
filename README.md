@@ -1,6 +1,16 @@
 # Basic boilerplate application based on "Laravel" framework with modular structure
 > The focus of boilerplate is on developing headless API applications.
 
+## Basic advantages of the boilerplate:
+1. The official "Laravel Sail" wrapper over docker with PHP version 8.2 was chosen as the development environment
+2. Configured code style fixer "Laravel Pint" `composer pint`
+3. Configured static analyser "PHPStan" `composer phpstan`
+4. Configured the configuration and custom stubs for the module generator "Laravel Modules"
+5. Configured eloquent strictness
+6. CarbonImmutable used by default instead Carbon
+7. "Laravel Pint" configuration requires final classes (_final_class_) and strict types (_declare_strict_types_)
+8. Convert responses to JsonResponse via ConvertResponsesToJSON middleware
+
 ## Application setup & launch
 1. Copy the base application configuration:
 `cp .env.example .env`
@@ -16,16 +26,6 @@ docker run --rm \
 3. Running migrations: `php artisan migrate`
 4. Running seeders: `php artisan db:seed`
 5. Run code static analyser & style fixer (PHPStan & Pint): `composer analyse`
-
-## Basic advantages of the boilerplate:
-1. The official "Laravel Sail" wrapper over docker with PHP version 8.2 was chosen as the development environment
-2. Configured code style fixer "Laravel Pint" `composer pint`
-3. Configured static analyser "PHPStan" `composer phpstan`
-4. Configured the configuration and custom stubs for the module generator "Laravel Modules"
-5. Configured eloquent strictness
-6. CarbonImmutable used by default instead Carbon
-7. "Laravel Pint" configuration requires final classes (_final_class_) and strict types (_declare_strict_types_)
-8. Convert responses to JsonResponse via ConvertResponsesToJSON middleware
 
 ## Useful packages installed by default:
 - nwidart/laravel-modules (Modular project structure)
