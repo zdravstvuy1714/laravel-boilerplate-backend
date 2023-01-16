@@ -25,7 +25,7 @@ final class AppServiceProvider extends ServiceProvider
 
         // Configuring default password rules.
         Password::defaults(static function () use ($environment) {
-            $rule = Password::min(6);
+            $rule = Password::min(8);
 
             return match ($environment) {
                 EnvironmentEnum::Production->value,
