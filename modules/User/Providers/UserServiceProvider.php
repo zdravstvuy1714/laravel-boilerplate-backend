@@ -19,8 +19,9 @@ final class UserServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        $this->registerTranslations();
         $this->registerConfig();
+        $this->registerTranslations();
+        $this->registerViews();
         $this->loadMigrations();
     }
 
@@ -46,8 +47,37 @@ final class UserServiceProvider extends ServiceProvider
         }
     }
 
+    public function registerViews(): void
+    {
+        $viewPath = resource_path('views/modules/' . $this->moduleNameLower);
+
+        $sourcePath = module_path($this->moduleName, 'Resources/views');
+
+        $this->publishes([
+            $sourcePath => $viewPath,
+        ], ['views', $this->moduleNameLower . '-module-views']);
+
+        $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
+    }
+
     protected function loadMigrations(): void
     {
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+    }
+
+    private function getPublishableViewPaths(): array
+    {
+        $paths = [];
+
+        /** @var array<string> $viewPaths */
+        $viewPaths = config('view.paths');
+
+        foreach ($viewPaths as $path) {
+            if (is_dir($path . '/modules/' . $this->moduleNameLower)) {
+                $paths[] = $path . '/modules/' . $this->moduleNameLower;
+            }
+        }
+
+        return $paths;
     }
 }

@@ -146,7 +146,7 @@ return [
             'notifications' => ['path' => 'Notifications', 'generate' => false],
 
             // Views.
-            'views' => ['path' => 'Resources/views', 'generate' => false],
+            'views' => ['path' => 'Resources/views', 'generate' => true],
             'assets' => ['path' => 'Resources/assets', 'generate' => false],
             'component-view' => ['path' => 'Resources/views/components', 'generate' => false],
             'component-class' => ['path' => 'View/Components', 'generate' => false],
