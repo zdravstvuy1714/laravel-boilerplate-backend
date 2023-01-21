@@ -142,7 +142,7 @@ return [
             'rules' => ['path' => 'Rules', 'generate' => false],
 
             // Notice.
-            'emails' => ['path' => 'Emails', 'generate' => false],
+            'emails' => ['path' => 'Mails', 'generate' => false],
             'notifications' => ['path' => 'Notifications', 'generate' => false],
 
             // Views.
