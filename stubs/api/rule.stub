@@ -2,21 +2,15 @@
 
 namespace $NAMESPACE$;
 
-use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Contracts\Validation\InvokableRule;
 
-final class $CLASS$ implements Rule
+final class $CLASS$ implements InvokableRule
 {
     public function __construct()
     {
     }
 
-    public function passes($attribute, $value): bool
+    public function __invoke($attribute, $value, $fail): void
     {
-        return true;
-    }
-
-    public function message(): string
-    {
-        return 'The validation error message.';
     }
 }
