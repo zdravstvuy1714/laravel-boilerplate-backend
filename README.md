@@ -23,7 +23,7 @@ docker run --rm \
     laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs
 ```
-3. Launch application: ./vendor/bin/sail up -d
+3. Launch application: `./vendor/bin/sail up -d`
 4. Running migrations: `php artisan migrate`
 5. Running seeders: `php artisan db:seed`
 6. Run code static analyser & style fixer (PHPStan & Pint): `composer analyse`
