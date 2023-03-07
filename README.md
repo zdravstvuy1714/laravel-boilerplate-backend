@@ -23,9 +23,10 @@ docker run --rm \
     laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs
 ```
-3. Running migrations: `php artisan migrate`
-4. Running seeders: `php artisan db:seed`
-5. Run code static analyser & style fixer (PHPStan & Pint): `composer analyse`
+3. Launch application: `./vendor/bin/sail up -d`
+4. Running migrations: `php artisan migrate`
+5. Running seeders: `php artisan db:seed`
+6. Run code static analyser & style fixer (PHPStan & Pint): `composer analyse`
 
 ## Useful packages installed by default:
 - nwidart/laravel-modules (Modular project structure)
