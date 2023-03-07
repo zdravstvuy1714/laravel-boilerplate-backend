@@ -43,14 +43,14 @@ final class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'api' => [
-            'throttle:api',
+            ThrottleRequests::class . ':api',
         ],
     ];
 
     /**
      * @var array<string, class-string|string>
      */
-    protected $routeMiddleware = [
+    protected $middlewareAliases = [
         'auth' => Authenticate::class,
         'auth.basic' => AuthenticateWithBasicAuth::class,
         'auth.session' => AuthenticateSession::class,
