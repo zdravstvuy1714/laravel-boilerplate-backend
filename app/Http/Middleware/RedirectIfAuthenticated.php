@@ -12,9 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class RedirectIfAuthenticated
 {
-    /**
-     * @param string|null  ...$guards
-     */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
         $guards = empty($guards) ? [null] : $guards;
