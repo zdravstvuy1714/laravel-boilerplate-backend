@@ -26,9 +26,10 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 3. Launch application: `./vendor/bin/sail up -d`
-4. Running migrations: `php artisan migrate`
-5. Running seeders: `php artisan db:seed`
-6. Run code static analyser & style fixer (PHPStan & Pint): `composer analyse`
+4. Generate application key: `php artisan key:generate`
+5. Running migrations: `php artisan migrate`
+6. Running seeders: `php artisan db:seed`
+7. Run code static analyser & style fixer (PHPStan & Pint): `composer analyse`
 
 ## Useful packages installed by default:
 - laravel/pint (Code style fixing)
