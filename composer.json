@@ -8,6 +8,7 @@
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
+        "laravel/horizon": "^5.21",
         "laravel/tinker": "^2.7",
         "nwidart/laravel-modules": "^9.0",
         "spatie/laravel-collection-macros": "^7.13",
