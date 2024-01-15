@@ -1,18 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
-use Laravel\Horizon\Horizon;
 use Laravel\Telescope\IncomingEntry;
 use Laravel\Telescope\Telescope;
 use Laravel\Telescope\TelescopeApplicationServiceProvider;
 
-class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
+final class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 {
     public function register(): void
     {
-         Telescope::night();
+        Telescope::night();
 
         $this->hideSensitiveRequestDetails();
 
@@ -21,11 +21,11 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
                 return true;
             }
 
-            return $entry->isReportableException() ||
-                   $entry->isFailedRequest() ||
-                   $entry->isFailedJob() ||
-                   $entry->isScheduledTask() ||
-                   $entry->hasMonitoredTag();
+            return $entry->isReportableException()
+                   || $entry->isFailedRequest()
+                   || $entry->isFailedJob()
+                   || $entry->isScheduledTask()
+                   || $entry->hasMonitoredTag();
         });
     }
 
@@ -46,6 +46,6 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 
     protected function authorization(): void
     {
-        Telescope::auth(fn () => true);
+        Telescope::auth(static fn () => true);
     }
 }

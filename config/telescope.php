@@ -1,6 +1,7 @@
 <?php
 
-use Laravel\Telescope\Http\Middleware\Authorize;
+declare(strict_types=1);
+
 use Laravel\Telescope\Watchers;
 
 return [
@@ -99,7 +100,7 @@ return [
     ],
 
     'ignore_commands' => [
-        //
+
     ],
 
     /*

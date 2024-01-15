@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Request;
 
-class HorizonAuthentication
+final class HorizonAuthentication
 {
     /**
      * @throws BindingResolutionException
@@ -28,7 +30,7 @@ class HorizonAuthentication
             }
         }
 
-        if ($authenticationHasPassed === false) {
+        if (false === $authenticationHasPassed) {
             return response()->make('Invalid credentials.', 401, ['WWW-Authenticate' => 'Basic']);
         }
 
