@@ -1,0 +1,6 @@
+composer install --no-interaction --optimize-autoloader
+
+php artisan optimize:clear
+php artisan optimize
+
+php artisan migrate --force
