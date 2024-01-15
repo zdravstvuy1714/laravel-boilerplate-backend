@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Request;
 
-class HorizonBasicAuth
+class HorizonAuthentication
 {
     /**
      * @throws BindingResolutionException

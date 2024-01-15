@@ -7,9 +7,10 @@ namespace App\Http;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\ConvertResponsesToJSON;
 use App\Http\Middleware\EncryptCookies;
-use App\Http\Middleware\HorizonBasicAuth;
+use App\Http\Middleware\HorizonAuthentication;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\TelescopeAuthentication;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
 use App\Http\Middleware\ValidateSignature;
@@ -57,6 +58,8 @@ final class Kernel extends HttpKernel
         'auth' => Authenticate::class,
         'auth.basic' => AuthenticateWithBasicAuth::class,
         'auth.session' => AuthenticateSession::class,
+        'auth.horizon' => HorizonAuthentication::class,
+        'auth.telescope' => TelescopeAuthentication::class,
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
         'guest' => RedirectIfAuthenticated::class,
@@ -64,6 +67,5 @@ final class Kernel extends HttpKernel
         'signed' => ValidateSignature::class,
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
-        'horizon' => HorizonBasicAuth::class,
     ];
 }
