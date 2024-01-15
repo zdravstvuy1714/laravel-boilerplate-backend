@@ -13,6 +13,10 @@ class HorizonAuthentication
      */
     public function handle(Request $request, Closure $next): mixed
     {
+        if (app()->environment('local')) {
+            return $next($request);
+        }
+
         $authenticationHasPassed = false;
 
         if ($request->header('PHP_AUTH_USER', null) && $request->header('PHP_AUTH_PW', null)) {

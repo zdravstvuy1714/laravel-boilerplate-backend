@@ -10,6 +10,8 @@
 6. CarbonImmutable used by default instead Carbon
 7. "Laravel Pint" configuration requires final classes (_final_class_) and strict types (_declare_strict_types_)
 8. Convert responses to JsonResponse via ConvertResponsesToJSON middleware
+9. Configured basic authentication for Horizon using `HORIZON_USERNAME` and `HORIZON_USERNAME` credentials at .env
+10. Configured basic authentication for Telescope using `TELESCOPE_USERNAME` and `TELESCOPE_USERNAME` credentials at .env
 
 ## Application setup & launch
 1. Copy the base application configuration:
@@ -29,12 +31,15 @@ docker run --rm \
 6. Run code static analyser & style fixer (PHPStan & Pint): `composer analyse`
 
 ## Useful packages installed by default:
+- laravel/pint (Code style fixing)
+- laravel/horizon (Redis queues monitoring dashboard)
+- laravel/telescope (Application requests monitoring dashboard)
 - nwidart/laravel-modules (Modular project structure)
 - spatie/laravel-data (Transformation of output data)
 - spatie/laravel-fractal (Data transfer object)
 - roave/security-advisories (Packages security vulnerabilities)
-- laravel/pint (Code style fixing)
 - nunomaduro/larastan (Static analysis)
+- archtechx/enums (Extending default PHP enums via traits)
 
 ## Framework changes:
 - Since the boilerplate focuses on the headless API of the application, the following changes were made to the framework:
