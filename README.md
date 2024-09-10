@@ -10,8 +10,8 @@
 6. CarbonImmutable used by default instead Carbon
 7. "Laravel Pint" configuration requires final classes (_final_class_) and strict types (_declare_strict_types_)
 8. Convert responses to JsonResponse via ConvertResponsesToJSON middleware
-9. Configured basic authentication for Horizon using `HORIZON_USERNAME` and `HORIZON_USERNAME` credentials at .env
-10. Configured basic authentication for Telescope using `TELESCOPE_USERNAME` and `TELESCOPE_USERNAME` credentials at .env
+9. Configured basic authentication for Horizon using `HORIZON_USERNAME` and `HORIZON_PASSWORD` credentials at .env
+10. Configured basic authentication for Telescope using `TELESCOPE_USERNAME` and `TELESCOPE_PASSWORD` credentials at .env
 
 ## Application setup & launch
 1. Copy the base application configuration:
